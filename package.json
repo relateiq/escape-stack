@@ -1,11 +1,14 @@
 {
   "name": "escape-stack",
   "version": "0.1.0",
-  "description": "a template for basic js packages",
+  "description": "A sweet way of handling things that close (or do other things) on escape",
   "main": "src/index.js",
   "author": "webdevs@salesforceiq.com",
   "license": "MIT",
   "homepage": "https://github.com/relateiq/escape-stack",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/relateiq/escape-stack.git"
