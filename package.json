@@ -1,17 +1,17 @@
-{
-  "name": "bedrock",
+  {
+  "name": "escape-stack",
   "version": "0.0.1",
   "description": "a template for basic js packages",
   "main": "src/index.js",
   "author": "webdevs@salesforceiq.com",
   "license": "MIT",
-  "homepage": "https://github.com/relateiq/bedrock",
+  "homepage": "https://github.com/relateiq/escape-stack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/relateiq/bedrock.git"
+    "url": "https://github.com/relateiq/escape-stack.git"
   },
   "bugs": {
-    "url": "https://github.com/relateiq/bedrock/issues"
+    "url": "https://github.com/relateiq/escape-stack/issues"
   },
   "iqproj": {
     "app": false
