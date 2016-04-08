@@ -21,13 +21,14 @@ function makeStack() {
     }
 
     function removeEscapeHandler(handler) {
-        stack.remove(function(handlerInStack) {
-            return handler === handlerInStack;
-        });
+        var index = stack.indexOf(handler);
+        if (index !== -1) {
+            stack.splice(index, 1);
+        }
     }
     return {
         add: addEscapeHandler
-    }
+    };
 }
 
 module.exports = function(global) {
