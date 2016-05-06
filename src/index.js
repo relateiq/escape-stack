@@ -9,7 +9,7 @@ function makeStack() {
         var key = e.keyCode ? e.keyCode : e.which;
         // yup i hard coded 27 sorry suckas
         if (key === 27) {
-            while (!!stack.length && !(stack.pop())(e)) {}
+            if (!!stack.length && !(stack.pop())(e)) {}
         }
     }, true);
 
