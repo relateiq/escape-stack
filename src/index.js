@@ -6,10 +6,10 @@ function makeStack() {
     // in order to capture escape event first
     document.body.addEventListener('keydown', function(e) {
 
-        var key = e.keyCode ? e.keyCode : e.which;
+        var key = e.keyCode || e.which;
         // yup i hard coded 27 sorry suckas
         if (key === 27) {
-            while (!!stack.length && !(stack.pop())(e)) {}
+            pop(e);
         }
     }, true);
 
@@ -26,8 +26,14 @@ function makeStack() {
             stack.splice(index, 1);
         }
     }
+
+    function pop(e) {
+        while (stack.length > 0 && !(stack.pop())(e)) {}
+    }
+
     return {
-        add: addEscapeHandler
+        add: addEscapeHandler,
+        pop: pop
     };
 }
 
