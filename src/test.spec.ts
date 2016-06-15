@@ -2,7 +2,8 @@
 declare var require: NodeRequire;
 
 /**** tape-style ****/
-var test = require('tape');
+import test = require('tape');
+import escapeStack from './';
 
 test('it should have a working test environment', function(t) {
     t.equal(true, true);
