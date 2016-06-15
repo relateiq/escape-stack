@@ -1,3 +1,6 @@
+///<reference path="../typings/index.d.ts" />
+declare var require: NodeRequire;
+
 var globalStack;
 
 function makeStack() {
@@ -37,7 +40,7 @@ function makeStack() {
     };
 }
 
-module.exports = function(global) {
+export = function(global) {
     if (!global) {
         return makeStack();
     }
