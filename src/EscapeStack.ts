@@ -18,7 +18,7 @@ export default class EscapeStack {
 		}
 	}
 
-	pop(e) {
+	pop(e?: any) {
 		while (this._stack.length > 0 && !(this._stack.pop())(e)) {}
 	}
 
