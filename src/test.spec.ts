@@ -1,19 +1,18 @@
 ///<reference path="../typings/index.d.ts" />
 declare var require: NodeRequire;
 
-/**** tape-style ****/
 import test = require('tape');
 import EscapeStack from './EscapeStack';
 
 const NUM_TIMES = 5;
 
-function addToStack(escapeStack, t, numTimes) {
+function addToStack(escapeStack: EscapeStack, t, numTimes: Number = 1) {
 	for (let i = 0; i < numTimes; i++) {
 		escapeStack.add(() => t.pass());
 	}
 }
 
-function popOffStack(escapeStack, numTimes) {
+function popOffStack(escapeStack: EscapeStack, numTimes: Number = 1) {
 	for (let i = 0; i < numTimes; i++) {
 		escapeStack.pop();
 	}
