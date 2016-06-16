@@ -40,7 +40,7 @@ function makeStack() {
     };
 }
 
-export default function(global) {
+export default function(global: boolean = false) {
     if (!global) {
         return makeStack();
     }
