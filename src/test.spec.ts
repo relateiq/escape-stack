@@ -6,33 +6,33 @@ import { EscapeStack } from './EscapeStack';
 
 const NUM_TIMES = 5;
 
-function addToStack(escapeStack: EscapeStack, t, numTimes: Number = 1) {
+function addToStack(escapeStack: EscapeStack, t, numTimes: number = 1) {
 	for (let i = 0; i < numTimes; i++) {
 		escapeStack.add(() => t.pass());
 	}
 }
 
-function popOffStack(escapeStack: EscapeStack, numTimes: Number = 1) {
+function popOffStack(escapeStack: EscapeStack, numTimes: number = 1) {
 	for (let i = 0; i < numTimes; i++) {
 		escapeStack.pop();
 	}
 }
 
-test('it should call the handler\'s callback when popped', t => {
+test(`it should call the handler's callback when popped`, t => {
 	t.plan(1);
 	const es = new EscapeStack();
 	es.add(() => t.pass());
 	es.pop();
 });
 
-test('it should call every handler\'s callback when popped', t => {
+test(`it should call every handler's callback when popped`, t => {
 	t.plan(NUM_TIMES);
 	const es = new EscapeStack();
 	addToStack(es, t, NUM_TIMES);
 	popOffStack(es, NUM_TIMES);
 });
 
-test('it should not call any callbacks when popping an empty stack', t => {
+test(`it should not call any callbacks when popping an empty stack`, t => {
 	t.plan(NUM_TIMES);
 	const es = new EscapeStack();
 	addToStack(es, t, NUM_TIMES);
@@ -42,7 +42,7 @@ test('it should not call any callbacks when popping an empty stack', t => {
 	popOffStack(es, NUM_TIMES);
 });
 
-test('it should remove handlers in the stack without calling their callbacks', t => {
+test(`it should remove handlers in the stack without calling their callbacks`, t => {
 	t.plan(NUM_TIMES * 2);
 	const es = new EscapeStack();
 

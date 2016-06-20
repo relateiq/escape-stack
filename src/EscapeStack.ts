@@ -16,7 +16,7 @@ export class EscapeStack {
 	 * 
 	 * @param {Function} handler
 	 */
-	add(handler: Function) {
+	public add(handler: Function) {
 		this._stack.push(handler);
 		return () => this._removeEscapeHandler(handler);
 	}
@@ -40,7 +40,7 @@ export class EscapeStack {
 	 * 
 	 * @param {Event} event
 	 */
-	pop(event?: Event) {
+	public pop(event?: Event) {
 		while (this._stack.length > 0 && !(this._stack.pop())(event)) {}
 	}
 

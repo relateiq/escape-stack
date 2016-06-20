@@ -4,19 +4,19 @@ import { handleEscapeKeydown } from './domEventHandler';
 
 let globalStack;
 
-const es = new EscapeStack();
-handleEscapeKeydown(document.body, es.pop);
+function initStack() {
+    const escapeStack = new EscapeStack();
+    handleEscapeKeydown(document.body, escapeStack.pop);
+    return escapeStack;
+}
 
 function createEscapeStack(global: boolean = false) {
-    const es = new EscapeStack();
-    handleEscapeKeydown(document.body, es.pop);
-
     if (!global) {
-        return es;
+        return initStack();
     }
 
     if (!globalStack) {
-        globalStack = es;
+        globalStack = initStack();
     }
     return globalStack;
 }
