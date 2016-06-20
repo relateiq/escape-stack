@@ -2,7 +2,7 @@
 declare var require: NodeRequire;
 
 import test = require('tape');
-import EscapeStack from './EscapeStack';
+import { EscapeStack } from './EscapeStack';
 
 const NUM_TIMES = 5;
 

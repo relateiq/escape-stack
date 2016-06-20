@@ -1,8 +1,8 @@
 ///<reference path="../typings/index.d.ts" />
-import EscapeStack from './EscapeStack';
-import handleEscapeKeydown from './domEventHandler';
+import { EscapeStack } from './EscapeStack';
+import { handleEscapeKeydown } from './domEventHandler';
 
 const es = new EscapeStack();
-handleEscapeKeydown(es.add);
+handleEscapeKeydown(document.body, es.pop);
 
 export default es;

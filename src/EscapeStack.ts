@@ -1,4 +1,4 @@
-export default class EscapeStack {
+export class EscapeStack {
 	/**
 	 * The stack is implemented as an array of functions 
 	 * which correspond to the callbacks of the handlers
@@ -38,10 +38,10 @@ export default class EscapeStack {
 	 * Removes event handlers from the top of the stack and executes their callbacks.
 	 * Continues to remove handlers until `false` is returned by a callback or the stack is empty
 	 * 
-	 * @param {any}
+	 * @param {Event} event
 	 */
-	pop(e?: any) {
-		while (this._stack.length > 0 && !(this._stack.pop())(e)) {}
+	pop(event?: Event) {
+		while (this._stack.length > 0 && !(this._stack.pop())(event)) {}
 	}
 
 }
