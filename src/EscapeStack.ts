@@ -1,6 +1,6 @@
 export class EscapeStack {
   /**
-   * The stack is implemented as an array of functions 
+   * The stack is implemented as an array of functions
    * which correspond to the callbacks of the handlers
    */
   private _stack: Array<Function>;
@@ -11,9 +11,9 @@ export class EscapeStack {
 
   /**
    * Pushes an event handler onto the stack
-   * Returns a function that when called removes that particular handler 
+   * Returns a function that when called removes that particular handler
    * from the stack without executing its callback
-   * 
+   *
    * @param {Function} handler
    */
   public add(handler: Function) {
@@ -24,7 +24,7 @@ export class EscapeStack {
   /**
    * Removes the given handler from the stack without executing its callback
    * This should never be called explicitly, it is the function returned by add()
-   * 
+   *
    * @param {Function} handler - the reference to the handler function to remove
    */
   private _removeEscapeHandler(handler: Function) {
@@ -37,7 +37,7 @@ export class EscapeStack {
   /**
    * Removes event handlers from the top of the stack and executes their callbacks.
    * Continues to remove handlers until `false` is returned by a callback or the stack is empty
-   * 
+   *
    * @param {Event} event
    */
   public pop(event?: Event) {
