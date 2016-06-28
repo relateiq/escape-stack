@@ -36,7 +36,7 @@ export class EscapeStack {
 
   /**
    * Removes event handlers from the top of the stack and executes their callbacks.
-   * Continues to remove handlers until `false` is returned by a callback or the stack is empty
+   * Continues to remove handlers until `true` is returned by a callback or the stack is empty
    *
    * @param {Event} event
    */
