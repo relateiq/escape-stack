@@ -1,11 +1,29 @@
 <html>
 <head>
   <title>Escape Stack</title>
-
   <link rel="stylesheet" type="text/css" href="app.css" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
 </head>
 <body ng-app="shell-app">
-  <div class="app-content" ui-view></div>
+  <div class="app-content" ui-view>
+
+    <div class="row">Escape Stack</div>
+
+    <div class="row">
+        <button class="btn" id="js-add-box">Add Box</button>
+        <button class="btn" id="js-add-fancy-box">Add Fancy Box</button>
+    </div>
+
+    <div class="row" id="box-container">
+        <div class="col-md-4">
+            <div class="demo-box"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="demo-box fancy"></div>
+        </div>
+    </div>
+
+  </div>
 
   <script src="app.js"></script>
 </body>
