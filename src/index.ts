@@ -6,7 +6,7 @@ let globalStack;
 
 function initStack() {
   const escapeStack = new EscapeStack();
-  handleEscapeKeydown(document.body, escapeStack.pop);
+  handleEscapeKeydown(document.body, escapeStack.pop.bind(escapeStack));
   return escapeStack;
 }
 
