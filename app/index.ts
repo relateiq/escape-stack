@@ -2,28 +2,43 @@
 import createEscapeStack from '../.src';
 
 const escapeStack = createEscapeStack();
-console.log(escapeStack);
 
 const addBoxButton = document.getElementById('js-add-box');
 const addFancyBoxButton = document.getElementById('js-add-fancy-box');
 
-addBoxButton.addEventListener('click', event => {
-  addBox();
-});
+addBoxButton.addEventListener('click', _ => addBox());
+addFancyBoxButton.addEventListener('click', _ => addBox(true));
 
-addFancyBoxButton.addEventListener('click', event => {
-  addBox(true);
-});
-
-function addBox(fancy: boolean = false) {
-  const boxDiv = `<div class="col-md-4">
-      <div class="demo-box ${fancy ? 'fancy' : ''}"></div>
-    </div>`;
-  const boxContainer = document.getElementById('box-container');
-  const allBoxesDivs = boxContainer.innerHTML;
-  boxContainer.innerHTML = allBoxesDivs + boxDiv;
+function onEscape(isSinglePop: boolean, event) {
+  this.remove();
+  return isSinglePop;
 }
 
-function deleteBox(div: Element) {
+function addBox(isFancy: boolean = false) {
+  let newBoxClasses = 'demo-box';
+  if (isFancy) {
+    newBoxClasses += ' fancy';
+  }
 
+  let fancyRemoveButton = '';
+  if (isFancy) {
+    fancyRemoveButton = `<div class="remove-fancy js-remove-fancy">Remove Fancy</div>`;
+  }
+
+  const newBoxDiv = `<div class="${newBoxClasses}">
+      ${fancyRemoveButton}
+    </div>`;
+
+  const newBoxContainer = document.createElement('div');
+  newBoxContainer.classList.add('col-md-4', 'col-sm-12');
+  newBoxContainer.innerHTML = newBoxDiv;
+
+  if (isFancy) {
+    // passing `true` to stop the EscapeStack's pop function
+    // from popping everything in the stack
+    escapeStack.add(onEscape.bind(newBoxContainer, true));
+  }
+
+  const allBoxesContainer = document.getElementById('all-boxes-container');
+  allBoxesContainer.appendChild(newBoxContainer);
 }

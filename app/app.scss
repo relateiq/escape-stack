@@ -3,12 +3,23 @@ body {
   padding: 2rem;
 }
 
+$box-color: #4BC1BE;
+$box-border-color: #033D52;
+
 .demo-box {
   height: 200px;
   width: 200px;
-  background-color: #f00;
+  background-color: $box-color;
+
+  position: relative;
 
   &.fancy {
-    border: 2px solid #0f0;
+    border: 2px dotted $box-border-color;
+  }
+
+  .remove-fancy {
+    position: absolute;
+    right: 5px;
+    top: 5px;
   }
 }
