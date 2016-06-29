@@ -6,5 +6,5 @@ export function handleEscapeKeydown(element: Node, callback: Function) {
     if (key === ESCAPE_KEY_CODE) {
       callback(event);
     }
-  });
+  }, true);
 }
