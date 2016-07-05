@@ -70,7 +70,6 @@ function addBox(escapeStack, isFancy: boolean = false) {
 
   const allBoxesContainer = document.getElementById('all-boxes-container');
   allBoxesContainer.appendChild(newBoxContainer);
-
   newBoxContainer.getElementsByClassName('demo-box')[0].classList.add('loading');
 }
 
