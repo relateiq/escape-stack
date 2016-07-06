@@ -1,12 +1,26 @@
 <html>
 <head>
   <title>Escape Stack</title>
+  <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="app.css" />
-  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous" />
 </head>
 <body ng-app="shell-app">
-  <div class="app-content" ui-view>
-    <h1 class="row">Escape Stack</h1>
+  <nav>
+    <div class="nap-wrapper container">
+      <span class="brand-logo">Escape Stack</span>
+    </div>
+  </nav>
+
+  <div class="app-content container" ui-view>
+
+    <div class="spacing"></div>
+
+    <h2 class="flow-text">
+      Escape Stack provides you a sweet way of handling things that close (or do other things) on escape.
+    </h2>
+
+    <div class="spacing"></div>
 
     <div>
       <button class="btn" id="js-add-box">Add Box</button>
@@ -14,9 +28,17 @@
       <button class="btn" id="js-toggle-single-pop">Currently set to: Single Pop (Click to toggle)</button>
     </div>
 
-    <h2 class="row">Demo</h2>
+    <div class="spacing"></div>
 
-    <div class="row">Boxes with dotted borders have an escape handler attached</div>
+    <div>
+      Fancy boxes (boxes with dashed borders) each have an escape handler attached that removes the box when fired.
+      <br>
+      Whenever the escape key is pressed, the handler is called and is popped off the stack.
+      <br>
+      You can set the escape stack to pop each handler one at a time or all of them at once (and technically anything in between).
+    </div>
+
+    <div class="spacing"></div>
 
     <div class="row all-boxes-container" id="js-all-boxes-container"></div>
   </div>
