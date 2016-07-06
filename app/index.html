@@ -6,17 +6,19 @@
 </head>
 <body ng-app="shell-app">
   <div class="app-content" ui-view>
-    <div class="row">Escape Stack</div>
+    <h1 class="row">Escape Stack</h1>
 
-    <div class="row">
-        <button class="btn" id="js-add-box">Add Box</button>
-        <button class="btn" id="js-add-fancy-box">Add Fancy Box</button>
-        <button class="btn" id="js-toggle-single-pop">Currently set to: Single Pop (Click to toggle)</button>
+    <div>
+      <button class="btn" id="js-add-box">Add Box</button>
+      <button class="btn" id="js-add-fancy-box">Add Fancy Box</button>
+      <button class="btn" id="js-toggle-single-pop">Currently set to: Single Pop (Click to toggle)</button>
     </div>
+
+    <h2 class="row">Demo</h2>
 
     <div class="row">Boxes with dotted borders have an escape handler attached</div>
 
-    <div class="row" id="all-boxes-container"></div>
+    <div class="row all-boxes-container" id="js-all-boxes-container"></div>
   </div>
 
   <script src="app.js"></script>

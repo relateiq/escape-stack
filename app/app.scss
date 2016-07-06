@@ -6,11 +6,17 @@ body {
 $box-color: #4BC1BE;
 $box-border-color: #033D52;
 
+.all-boxes-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .demo-box {
   height: 200px;
   width: 200px;
   position: relative;
   opacity: 0;
+  margin: 10px;
 
   &.fancy {
     border: 2px dashed $box-border-color;

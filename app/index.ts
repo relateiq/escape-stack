@@ -35,9 +35,13 @@ function onEscape(event) {
 
 function onRemoveFancy(removeEscapeHandler: Function, event) {
   const parentNode = this.parentNode;
+  this.classList.remove('loading');
+  this.classList.add('closing');
   removeEscapeHandler();
   parentNode.classList.remove('fancy');
-  this.remove();
+  setTimeout(() => {
+    this.remove();
+  }, ANIMATION_TIME);
 }
 
 function addBox(escapeStack, isFancy: boolean = false) {
@@ -48,7 +52,8 @@ function addBox(escapeStack, isFancy: boolean = false) {
 
   let removeFancyButton = '';
   if (isFancy) {
-    removeFancyButton = `<div class="remove-fancy js-remove-fancy">Remove Fancy</div>`;
+    const removeFancyButtonClasses = `remove-fancy js-remove-fancy loading`;
+    removeFancyButton = `<div class="${removeFancyButtonClasses}">Remove Fancy</div>`;
   }
 
   const newBoxColorStyle = `background-color: ${getRandomColor()}`;
@@ -58,7 +63,6 @@ function addBox(escapeStack, isFancy: boolean = false) {
     </div>`;
 
   const newBoxContainer = document.createElement('div');
-  newBoxContainer.classList.add('col-md-4', 'col-sm-12');
   newBoxContainer.innerHTML = newBoxDiv;
 
   if (isFancy) {
@@ -68,7 +72,7 @@ function addBox(escapeStack, isFancy: boolean = false) {
     removeFancyButtonElement.addEventListener('click', boundedRemove);
   }
 
-  const allBoxesContainer = document.getElementById('all-boxes-container');
+  const allBoxesContainer = document.getElementById('js-all-boxes-container');
   allBoxesContainer.appendChild(newBoxContainer);
   newBoxContainer.getElementsByClassName('demo-box')[0].classList.add('loading');
 }
