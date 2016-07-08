@@ -88,6 +88,6 @@ function addBox(escapeStack, isFancy: boolean = false) {
 // http://kentor.me/posts/generating-pastel-colors-for-css/
 function getRandomPastelColor() {
   const hue = Math.floor(Math.random() * 360);
-  const pastel = 'hsl(' + hue + ', 100%, 80%)';
+  const pastel = 'hsl(' + hue + ', 100%, 75%)';
   return pastel;
 }
