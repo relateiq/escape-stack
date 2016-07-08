@@ -11,6 +11,8 @@ Currently you will have to run the demo locally. See the [Developing](#developin
 npm install escape-stack
 ```
 
+Use the `--save` flag to save it to your `package.json`.
+
 ## Usage
 
 Escape Stack exports a function that creates the stack. You can add event handler functions to the stack which get called as you pop the stack.
@@ -23,6 +25,8 @@ const escapeStack = createEscapeStack();
 
 ### Adding to the Escape Stack
 The `add(handler: Function)` function pushes an event handler onto the stack.
+
+The following example functions return `true` so they [pop once per each escape keypress](#single-and-continuous-popping).
 
 ```typescript
 function closeModal(event) {
