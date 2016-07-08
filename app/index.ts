@@ -61,7 +61,7 @@ function addBox(escapeStack, isFancy: boolean = false) {
     removeFancyButton = `<div class="${removeFancyButtonClasses}">Remove Fancy</div>`;
   }
 
-  const newBoxColorStyle = `background-color: ${getRandomMaterialColor()}`;
+  const newBoxColorStyle = `background-color: ${getRandomPastelColor()}`;
 
   const newBoxDiv = `<div class="${newBoxClasses}" style="${newBoxColorStyle}">
       ${removeFancyButton}
@@ -85,37 +85,9 @@ function addBox(escapeStack, isFancy: boolean = false) {
   newBoxContainer.getElementsByClassName('demo-box')[0].classList.add('loading');
 }
 
-function getRandomColor() {
-  const letters = '0123456789ABCDEF'.split('');
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+// http://kentor.me/posts/generating-pastel-colors-for-css/
+function getRandomPastelColor() {
+  const hue = Math.floor(Math.random() * 360);
+  const pastel = 'hsl(' + hue + ', 100%, 80%)';
+  return pastel;
 }
-
-function getRandomMaterialColor() {
-  return '#' + MATERIAL_MAIN_COLORS[Math.floor(Math.random() * MATERIAL_MAIN_COLORS.length)];
-}
-
-const MATERIAL_MAIN_COLORS = [
-  "F44336",
-  "E91E63",
-  "9C27B0",
-  "673AB7",
-  "3F51B5",
-  "2196F3",
-  "03A9F4",
-  "00BCD4",
-  "009688",
-  "4CAF50",
-  "8BC34A",
-  "CDDC39",
-  "FFEB3B",
-  "FFC107",
-  "FF9800",
-  "FF5722",
-  "795548",
-  "9E9E9E",
-  "607D8B"
-];
