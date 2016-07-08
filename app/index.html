@@ -1,47 +1,59 @@
 <html>
 <head>
   <title>Escape Stack</title>
-  <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="app.css" />
 </head>
 <body ng-app="shell-app">
-  <nav>
-    <div class="nap-wrapper container">
-      <span class="brand-logo">Escape Stack</span>
+
+  <div class="banner valign-wrapper">
+    <div class="container valign center">
+      <h1>Escape Stack</h1>
+      <div class="spacing small"></div>
+      <h2 class="flow-text ">
+        A sweet way of handling events on escape
+      </h2>
+      <div class="spacing small"></div>
+      <a href="http://github.com/relateiq/escape-stack">
+        <button class="main-btn ani-b">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          View on Github
+        </button>
+      </a>
     </div>
-  </nav>
-
-  <div class="app-content container" ui-view>
-
-    <div class="spacing"></div>
-
-    <h2 class="flow-text">
-      Escape Stack provides you a sweet way of handling things that close (or do other things) on escape.
-    </h2>
-
-    <div class="spacing"></div>
-
-    <div>
-      <button class="btn" id="js-add-box">Add Box</button>
-      <button class="btn" id="js-add-fancy-box">Add Fancy Box</button>
-      <button class="btn" id="js-toggle-single-pop">Currently set to: Single Pop (Click to toggle)</button>
-    </div>
-
-    <div class="spacing"></div>
-
-    <div>
-      Fancy boxes (boxes with dashed borders) each have an escape handler attached that removes the box when fired.
-      <br>
-      Whenever the escape key is pressed, the handler is called and is popped off the stack.
-      <br>
-      You can set the escape stack to pop each handler one at a time or all of them at once (and technically anything in between).
-    </div>
-
-    <div class="spacing"></div>
-
-    <div class="row all-boxes-container" id="js-all-boxes-container"></div>
   </div>
+
+  <div class="container main-content">
+    <div class="spacing small"></div>
+    <h2 class="header-line">Demo</h2>
+    <div class="spacing small"></div>
+
+    <div class="demo-container">
+        <div class="instructions">
+          <h5>Fancy boxes have colorful borders and are pushed onto the Escape Stack.</h5>
+          <h5>Click "Remove Fancy" to make it plain and remove it from the stack.</h5>
+          <h5>Press the escape key to pop fancy boxes off the stack.</h5>
+          <h5>Escape Stack lets you pop one at a time, all at once, or anything in between!</h5>
+        </div>
+        <div class="spacing small"></div>
+        <div>
+          <button class="btn" id="js-add-box">Add Plain Box</button>
+          <button class="btn" id="js-add-fancy-box">Add Fancy Box</button>
+          <button class="btn" id="js-toggle-single-pop">Currently set to: Single Pop (Click to toggle)</button>
+        </div>
+        <div class="spacing medium"></div>
+        <div class="row all-boxes-container" id="js-all-boxes-container"></div>
+      </div>
+  </div>
+
+  <div class="spacing medium"></div>
+
+  <footer class="valign-wrapper">
+    <div class="container valign center">
+      <p>© 2016 SalesforceIQ</p>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>

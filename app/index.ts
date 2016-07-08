@@ -27,6 +27,10 @@ function onEscape(event) {
   const demoBox = this.getElementsByClassName('demo-box')[0];
   demoBox.classList.remove('loading');
   demoBox.classList.add('closing');
+
+  if (Array.prototype.indexOf.call(demoBox.classList, 'fancy') !== -1) {
+    demoBox.parentNode.classList.remove('fancy-container');
+  }
   setTimeout(() => {
     this.remove();
   }, ANIMATION_TIME);
@@ -39,6 +43,7 @@ function onRemoveFancy(removeEscapeHandler: Function, event) {
   this.classList.add('closing');
   removeEscapeHandler();
   parentNode.classList.remove('fancy');
+  parentNode.parentNode.classList.remove('fancy-container');
   setTimeout(() => {
     this.remove();
   }, ANIMATION_TIME);
@@ -56,16 +61,19 @@ function addBox(escapeStack, isFancy: boolean = false) {
     removeFancyButton = `<div class="${removeFancyButtonClasses}">Remove Fancy</div>`;
   }
 
-  const newBoxColorStyle = `background-color: ${getRandomColor()}`;
+  const newBoxColorStyle = `background-color: ${getRandomMaterialColor()}`;
 
   const newBoxDiv = `<div class="${newBoxClasses}" style="${newBoxColorStyle}">
       ${removeFancyButton}
     </div>`;
 
   const newBoxContainer = document.createElement('div');
+  newBoxContainer.classList.add('box-container');
   newBoxContainer.innerHTML = newBoxDiv;
 
   if (isFancy) {
+    newBoxContainer.classList.add('fancy-container');
+
     const removeEscapeHandler = escapeStack.add(onEscape.bind(newBoxContainer));
     const removeFancyButtonElement = newBoxContainer.getElementsByClassName('js-remove-fancy')[0];
     const boundedRemove = onRemoveFancy.bind(removeFancyButtonElement, removeEscapeHandler);
@@ -85,3 +93,29 @@ function getRandomColor() {
   }
   return color;
 }
+
+function getRandomMaterialColor() {
+  return '#' + MATERIAL_MAIN_COLORS[Math.floor(Math.random() * MATERIAL_MAIN_COLORS.length)];
+}
+
+const MATERIAL_MAIN_COLORS = [
+  "F44336",
+  "E91E63",
+  "9C27B0",
+  "673AB7",
+  "3F51B5",
+  "2196F3",
+  "03A9F4",
+  "00BCD4",
+  "009688",
+  "4CAF50",
+  "8BC34A",
+  "CDDC39",
+  "FFEB3B",
+  "FFC107",
+  "FF9800",
+  "FF5722",
+  "795548",
+  "9E9E9E",
+  "607D8B"
+];
