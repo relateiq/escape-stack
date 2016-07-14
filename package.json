@@ -1,6 +1,6 @@
 {
   "name": "escape-stack",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A sweet way of handling things that close (or do other things) on escape",
   "main": ".src/index.js",
   "author": "webdevs@salesforceiq.com",
