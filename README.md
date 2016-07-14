@@ -3,7 +3,9 @@
 A sweet way of handling things that close (or do other things) on escape
 
 ## Demo
-Currently you will have to run the demo locally. See the [Developing](#developing) section of this README for instructions.
+http://relateiq.github.io/escape-stack
+
+See the [Developing](#developing) section for instructions on how to play with the demo locally
 
 ## Installation
 
