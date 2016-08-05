@@ -1,6 +1,10 @@
-# escape-stack
+[![npm][npm-badge]][npm-badge-url]
+[npm-badge]: https://img.shields.io/npm/v/escape-stack.svg
+[npm-badge-url]: https://www.npmjs.com/package/escape-stack
 
-A sweet way of handling things that close (or do other things) on escape
+# Escape Stack
+
+A sweet way of handling things that close (or do other things) when the escape key is pushed
 
 ## Demo
 http://relateiq.github.io/escape-stack
