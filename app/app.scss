@@ -183,3 +183,10 @@ footer {
   67% { border-color: $seed0; }
   100% { border-color: #fff; }
 }
+
+// overriding materialize
+@media only screen and (min-width: 993px) {
+  .main-content.container {
+    width: 85%;
+  }
+}
